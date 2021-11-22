@@ -12,4 +12,5 @@ module com.example.tp_puissance4 {
 
     opens com.example.tp_puissance4 to javafx.fxml;
     exports com.example.tp_puissance4;
+    exports main.tp_puissance4;
 }
