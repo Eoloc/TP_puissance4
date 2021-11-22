@@ -23,10 +23,26 @@ public class Grille {
         String res = "";
         for(int j = 0; j < tailleY; j++){
             for(int i = 0; i < tailleX; i++){
-                res += '-';
+                res += grille[i][j] + "  ";
             }
             res += '\n';
         }
         return res;
+    }
+
+    public int getTailleX() {
+        return tailleX;
+    }
+
+    public int getTailleY() {
+        return tailleY;
+    }
+
+    public void setGrilleChar(int x, int y, char c) {
+        this.grille[x][y] = c;
+    }
+
+    public char getGrilleChar(int x, int y) {
+        return this.grille[x][y];
     }
 }
