@@ -51,9 +51,6 @@ public class Jeu {
                 else if(commande == '7'){
                     insererJeton(joueur1, 6);
                 }
-                else if(commande == '8') {
-                    insererJeton(joueur1, 7);
-                }
                 else {
                     bonChoix = false;
                 }
@@ -87,9 +84,6 @@ public class Jeu {
                 else if(commande == '7'){
                     insererJeton(joueur2, 6);
                 }
-                else if(commande == '8') {
-                    insererJeton(joueur2, 7);
-                }
                 else {
                     bonChoix = false;
                 }
@@ -113,7 +107,7 @@ public class Jeu {
                 break;
             }
             if(j == grille.getTailleY() - 1){
-                grille.setGrilleChar(position, 7, joueur.getJeton());
+                grille.setGrilleChar(position, j, joueur.getJeton());
             }
 
         }
