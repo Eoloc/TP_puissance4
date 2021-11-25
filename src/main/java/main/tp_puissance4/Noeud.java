@@ -1,11 +1,13 @@
 package main.tp_puissance4;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Noeud {
     private HashMap<Integer, int[]> valeurs;
 
     public Noeud(){
+        valeurs = new HashMap<>();
         for(int i = 1; i < 8;i++){
             valeurs.put(i, null);
         }
@@ -172,7 +174,7 @@ public class Noeud {
 
     @Override
     public String toString() {
-        String res = "Graphe : \n";
+        String res = "Noeud : \n";
         for(int i = 1; i < 8;i++){
             res += "(" + i + ") = [";
             for (int j = 0; j < valeurs.get(i).length -1; j++) {

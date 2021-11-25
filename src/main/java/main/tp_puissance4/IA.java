@@ -11,7 +11,7 @@ public class IA extends Joueur{
 
     public int choisirCoup() {
         graphe.genererGraphe(grille);
-        System.out.println(graphe);
+        //System.out.println(graphe);
         //TODO appliquer l'algo MinMax
         return 1;
     }
