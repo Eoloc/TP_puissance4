@@ -54,7 +54,7 @@ public class Jeu {
                         choix = sc.nextInt();
                     }
 
-                    //insererJeton(joueur2, choix-1);
+                    insererJeton(joueur2, choix-1);
                 } catch(Exception e) {
                     bonChoix = false;
                 }
