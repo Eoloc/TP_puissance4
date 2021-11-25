@@ -19,8 +19,9 @@ public class Jeu {
     }
 
     public void demarrer() throws IOException {
-        Joueur joueur1 = new Joueur(1, 'O');
-        Joueur joueur2 = new Joueur(2, 'X');
+        Joueur joueur1 = new Joueur(1, 'O', false);
+        //Joueur joueur2 = new Joueur(2, 'X', false);
+        IA joueur2 = new IA(2, 'X');
         int tour = 1;
         boolean bonChoix = true;
         Scanner sc = new Scanner(System.in);
@@ -44,8 +45,14 @@ public class Jeu {
                 bonChoix = true;
 
                 try {
-                    choix = sc.nextInt();
-                    insererJeton(joueur2, choix-1);
+                    if(joueur2.isIA()){
+                        joueur2.setGrille(grille);
+                        choix = joueur2.choisirCoup();
+                    } else {
+                        choix = sc.nextInt();
+                    }
+
+                    //insererJeton(joueur2, choix-1);
                 } catch(Exception e) {
                     bonChoix = false;
                 }
@@ -96,15 +103,6 @@ public class Jeu {
         boolean gauchebas = true;
         boolean droitebas = true;
         for(int i = 1; i < 4; i++) {
-            /*System.out.println("tour de boucle " + i + " x:" + x + " y:" + y);
-            System.out.println("pour gauche : x:" + (x-i) + " y:" + y);
-            System.out.println("pour droite : x:" + (x+i) + " y:" + y);
-            System.out.println("pour haut : x:" + x + " y:" + (y-1));
-            System.out.println("pour bas : x:" + x + " y:" + (y+1));
-            System.out.println("pour gauchehaut : x:" + (x-1) + " y:" + (y-1));
-            System.out.println("pour droitehaut : x:" + (x+1) + " y:" + (y-1));
-            System.out.println("pour gauchebas : x:" + (x-1) + " y:" + (y+1));
-            System.out.println("pour droitebas : x:" + (x+1) + " y:" + (y+1) +"\n\n");*/
             try {
                 if(grille.getGrilleChar(x-i, y) != jetonActuel){
 
@@ -163,7 +161,6 @@ public class Jeu {
                 droitebas = false;
             }
         }
-        //System.out.println("gauche : " + gauche + "\n" + "droite : " + droite + "\n" + "haut : " + haut + "\n" + "bas : " + bas + "\n" + "gauchehaut : " + gauchehaut + "\n" + "droitehaut : " + droitehaut + "\n" + "gauchebas : " + gauchebas + "\n" + "droitebas : " + droitebas + "\n");
         if(gauche || droite || haut || bas || gauchehaut || droitehaut || gauchebas || droitebas){
             win = true;
         }
