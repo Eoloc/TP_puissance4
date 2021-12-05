@@ -6,6 +6,7 @@ import main.tp_puissance4.Joueur;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Jeu {
@@ -48,14 +49,17 @@ public class Jeu {
                     if(joueur2.isIA()){
                         joueur2.setGrille(grille);
                         //choix = joueur2.choisirCoup();
-                        joueur2.choisirCoup();
-                        choix = sc.nextInt();
+                        System.out.println("ON EST DANS CHOISIR COUP");
+                        choix = joueur2.choisirCoup();
+                        System.out.println("CHOIX = " + choix);
+                        //choix = sc.nextInt();
                     } else {
                         choix = sc.nextInt();
                     }
 
                     insererJeton(joueur2, choix-1);
                 } catch(Exception e) {
+                    System.out.println(Arrays.toString(e.getStackTrace()));
                     bonChoix = false;
                 }
 

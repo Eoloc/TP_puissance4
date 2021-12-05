@@ -17,6 +17,17 @@ public class Grille {
             }
         }
     }
+    
+    public Grille(Grille grilles) {
+        tailleX = grilles.getTailleX();
+        tailleY = grilles.getTailleY();
+        grille = new char[tailleX][tailleY];
+        for(int j = 0; j < tailleY; j++){
+            for(int i = 0; i < tailleX; i++){
+                this.grille[i][j] = grilles.getGrilleChar(i, j);
+            }
+        }
+    }
 
     @Override
     public String toString() {
@@ -44,5 +55,9 @@ public class Grille {
 
     public char getGrilleChar(int x, int y) {
         return this.grille[x][y];
+    }
+    
+    public char[][] getGrille() {
+    	return grille;
     }
 }
