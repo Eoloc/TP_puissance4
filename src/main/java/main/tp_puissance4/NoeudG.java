@@ -75,13 +75,6 @@ public class NoeudG {
 
 			// on remplit le Hashmap des valeurs heuristiques
 			nexts.get(i).genererValeur(grille);
-			for(int k = 1; k < nexts.get(i).grille.getTailleX(); k++) {
-
-				for(int a = 0; a < nexts.get(i).valeurs.get(k).length; a++){
-					System.out.print(nexts.get(i).valeurs.get(k)[a]);
-				}
-				System.out.println("");
-			}
 		}
 	}
 
@@ -239,6 +232,22 @@ public class NoeudG {
 					int[] value = new int[]{gauche, droite, haut, bas, gauchehaut, droitehaut, gauchebas, droitebas};
 					valeurs.replace((i+1), value);
 				}
+			}
+		}
+	}
+
+	public void genererProfondeur(int n, char symbole) {
+		if (n > 0) {
+			char sy = 'O';
+			char nxt = 'X';
+			if (symbole=='X') {
+				sy = 'X';
+				nxt = 'O';
+			}
+			this.genererNext(sy);
+			this.afficherNexts();
+			for(int i = 0; i < this.getNexts().size();i++) {
+				this.getNexts().get(i).genererProfondeur(n-1, nxt);
 			}
 		}
 	}

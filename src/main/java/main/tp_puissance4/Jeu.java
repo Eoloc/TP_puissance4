@@ -48,11 +48,7 @@ public class Jeu {
                 try {
                     if(joueur2.isIA()){
                         joueur2.setGrille(grille);
-                        //choix = joueur2.choisirCoup();
-                        System.out.println("ON EST DANS CHOISIR COUP");
                         choix = joueur2.choisirCoup();
-                        System.out.println("CHOIX = " + choix);
-                        //choix = sc.nextInt();
                     } else {
                         choix = sc.nextInt();
                     }
